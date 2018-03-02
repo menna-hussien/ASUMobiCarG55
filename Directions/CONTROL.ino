@@ -1,117 +1,145 @@
+//Code to test motor control using serial
+//asumming L298 Motor Driver
+
+/* edit "MOD R1":
+Made it char based serial control for motor 
+added function change_speed()  STOP();
+mod return type of all function 
+removed old speed control mechanism
+
+TODO: 
+    1)  Check and report/change syntax and compile/run time errors. 
+    2)  Add test cases 
+            serial_check() to test serial connection
+            motor_check() to test motor connections 
+*/
 
 
-char data = 0;
-int motor1f =13;
-int motor1b=12;
-int motor2f=11;
-int motor2b =10;
-int spd1 =8;
-int spd2 =7;
+//pinnames
+#define MOTOR_1F 13
+#define MOTOR_1B 12
+#define MOTOR_2F 11
+#define MOTOR_2B 10
+#define SPEED_1 8
+#define SPEED_2 7
+
 void setup() {
-  // put your setup code here, to run once:
+ 
+//Intitiate serial communication
 Serial.begin(9600);
-pinMode (motor1f,OUTPUT);
-pinMode (motor1b,OUTPUT);
-pinMode (motor2f,OUTPUT);
-pinMode (motor2b,OUTPUT);
-pinMode (spd1, OUTPUT);
-pinMode (spd2,OUTPUT);
-}
-int FORWARD ( );
-int BACKWARD ( );
-int RIGHT ( );
-int LEFT ( );
-int HALFSPEED ();
-int QUARTERSPEED();
-int TOTALSPEED ();
+while (! Serial); 
 
+pinMode (MOTOR_1F,OUTPUT);
+pinMode (MOTOR_1B,OUTPUT);
+pinMode (MOTOR_2F,OUTPUT);
+pinMode (MOTOR_1B,OUTPUT);
+pinMode (SPEED_1, OUTPUT);
+pinMode (SPEED_2,OUTPUT);
+
+Serial.println("Speed 0 to 5 or F B L R");
+}
+
+//functions
+void FORWARD();
+void BACKWARD();
+void RIGHT();
+void LEFT();
+void STOP()
+
+void change_speed(int speed)
 
 void loop() {
-  // put your main code here, to run repeatedly:
-if (Serial.available() >0)
-{
 
-  data =Serial.read();
-  
-  if (data  == '1')
-  { TOTALSPEED ();
-    FORWARD ();
-   }
-    else if (data == '2')
+  if (Serial.available())
     {
-      HALFSPEED();
-      BACKWARD();
-    }
-    else if (data == '3')
-    {QUARTERSPEED();
-      RIGHT();
-     
-    }
-     else if (data == '4')
-    {TOTALSPEED();
-      LEFT();
-     
+    
+      char data = Serial.read();
+             
+      if(isAlpha(data))
+        {
+          //call the direction fuctions with F B L R as serial input checks
+          
+            switch (data) {
+                case 'F':
+                case 'f':
+                        int FORWARD();
+                        break;
+                case 'B':
+                case 'b':
+                        int BACKWARD();
+                        break;
+                case 'L':
+                case 'l':
+                        int LEFT();
+                        break;
+                case 'R':
+                case 'r':
+                        int RIGHT();
+                        break;
+  
+                default:
+                 Serial.println("Error 0001: Char not recognised");
+                 change_speed(0);
+                 STOP(); 
+                }
+        }
+      else change_speed(data);
+      
+      delay(1000);  //wait 1 sec before checking next input
     }
     
+} 
 
-  else 
-  {
-     digitalWrite (12,LOW);
-     digitalWrite (13,LOW);
-     digitalWrite (10,LOW);
-     digitalWrite (11,LOW);
-     
-  }
 
-}}
-int FORWARD( )
-{
-   digitalWrite (motor1f,HIGH);
-     digitalWrite (motor1b,LOW);
-     digitalWrite (motor2f,HIGH);
-     digitalWrite (motor2b,LOW);
-     
-}
-int BACKWARD( )
-{
-  digitalWrite (motor1b,HIGH);
-     digitalWrite (motor1f,LOW);
-     digitalWrite (motor2b,HIGH);
-     digitalWrite (motor2f,LOW);
-     
-}
-int RIGHT ( )
-{
 
-      digitalWrite (motor1b,HIGH);
-     digitalWrite (motor1f,LOW);
-     digitalWrite (motor2b,LOW);
-     digitalWrite (motor2f,HIGH);
-     
-}
-int LEFT( )
-{
-
-      digitalWrite (motor1b,LOW);
-     digitalWrite (motor1f,HIGH);
-     digitalWrite (motor2b,HIGH);
-     digitalWrite (motor2f,LOW);
-     
-}
-int TOTALSPEED ()
-{
-
-   analogWrite (spd1,255);
-  analogWrite (spd2,255);
-}
-int HALFSPEED ()
-{
-  analogWrite (spd1,128);
-  analogWrite (spd2,128);
-}
-int QUARTERSPEED()
-{ analogWrite (spd1,64);
-analogWrite (spd2,64);
-
+void change_speed(int speed){
   
+      speed = map(speed, 0, 5, 0, 255); // converting 0-5 to 0-255
+      speed = constain(speed, 0, 255); // just to make sure enterd value does not go beyond limit
+    
+      analogWrite(SPEED_1, speed);  //writting the spee value to pins
+      analogWrite(SPEED_2, speed);
+       
 }
+
+
+void FORWARD()
+{
+     digitalWrite (MOTOR_1F,HIGH);
+     digitalWrite (MOTOR_1B,LOW);
+     digitalWrite (MOTOR_2F,HIGH);
+     digitalWrite (MOTOR_2B,LOW);
+}
+
+void BACKWARD()
+{
+     digitalWrite (MOTOR_1B,HIGH);
+     digitalWrite (MOTOR_1F,LOW);
+     digitalWrite (MOTOR_2B,HIGH);
+     digitalWrite (MOTOR_2F,LOW);
+}
+
+void RIGHT ()
+{
+     digitalWrite (MOTOR_1B,HIGH);
+     digitalWrite (MOTOR_1F,LOW);
+     digitalWrite (MOTOR_2B,LOW);
+     digitalWrite (MOTOR_2F,HIGH);
+}
+
+void LEFT()
+{
+     digitalWrite (MOTOR_1B,LOW);
+     digitalWrite (MOTOR_1F,HIGH);
+     digitalWrite (MOTOR_2B,HIGH);
+     digitalWrite (MOTOR_2F,LOW);
+}
+
+void STOP()
+{
+     digitalWrite (MOTOR_1B,LOW);
+     digitalWrite (MOTOR_1F,LOW);
+     digitalWrite (MOTOR_2B,LOW);
+     digitalWrite (MOTOR_2F,LOW);
+}
+
