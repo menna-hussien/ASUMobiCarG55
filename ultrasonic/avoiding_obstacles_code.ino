@@ -1,17 +1,17 @@
-#include <LiquidCrystal.h>
-LiquidCrystal lcd (11,10,9,8,3,2);
-
-
-
 #include<NewPing.h>
-const int trigger=13;
-const int echo=12;
-float t,d;
+const int trigger=5;
+const int echo=2;
+NewPing ultrasonic(trigger,echo);
 void setup() {
-lcd.begin(16,2);
-for(int i=4;i<=7;i++)
-{
-  pinMode(i,OUTPUT);
+Serial.begin(9600);
+pinMode(9,OUTPUT);
+pinMode(6,OUTPUT);
+  pinMode(13,OUTPUT);
+  pinMode(12,OUTPUT);
+  pinMode(11,OUTPUT);
+  pinMode(10,OUTPUT);
+  pinMode(5,OUTPUT);
+  pinMode(2,INPUT);
 }
   
   // put your setup code here, to run once:
@@ -20,40 +20,47 @@ for(int i=4;i<=7;i++)
 void loop() {
   
   // put your main code here, to run repeatedly:
-digitalWrite(13,0);
+
+ forward();
+  analogWrite(9,255);
+  analogWrite(6,255);
+digitalWrite(5,0);
 delayMicroseconds(2);
-digitalWrite(13,1);
+digitalWrite(5,1);
 delayMicroseconds(10);
-digitalWrite(13,0);
- t=pulseIn(echo,trigger);
- d=t/58;
- lcd.setCursor(0,0);
-  lcd.print(String(d));
+digitalWrite(5,0);
+ float d=ultrasonic.ping_cm();
   if (d<=20)
 { 
-  digitalWrite(7,HIGH);
-  digitalWrite(6, LOW);
-  digitalWrite(5, LOW); 
-  digitalWrite(4, HIGH);
+ right();
+ delay(1000);
+ forward();
+ d=ultrasonic.ping_cm();
   if(d<=20)
   {
-     digitalWrite(7,HIGH);
-  digitalWrite(6, LOW);
-  digitalWrite(5, LOW); 
-  digitalWrite(4, HIGH);
-  delay(50);
-  }
+ right();
+ delay(1000);
+ forward();
+}
   else {
-    digitalWrite(7,HIGH);
-  digitalWrite(6, LOW);
-  digitalWrite(5, HIGH); 
-  digitalWrite(4, LOW);
+  forward();
 }
 }
 else {
-    digitalWrite(7,HIGH);
-  digitalWrite(6, LOW);
-  digitalWrite(5, HIGH); 
-  digitalWrite(4, LOW);
+   forward();
 }
+}
+void forward()
+{
+   digitalWrite(13,HIGH);
+  digitalWrite(12,LOW);
+  digitalWrite(11,HIGH); 
+  digitalWrite(10,LOW);
+}
+void right()
+{
+  digitalWrite(13,HIGH);
+  digitalWrite(12,LOW);
+ digitalWrite(11,LOW); 
+  digitalWrite(10,HIGH); 
 }
