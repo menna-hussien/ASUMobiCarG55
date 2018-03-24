@@ -8,6 +8,55 @@ int spd2 =7;
 int LS=4;            //dah ell fe eh sensor aslan
 int CS=5;
 int RS=6;
+int FORWARD( )
+{
+   digitalWrite (motor1f,HIGH);
+     digitalWrite (motor1b,LOW);
+     digitalWrite (motor2f,HIGH);
+     digitalWrite (motor2b,LOW);
+     
+}
+int BACKWARD( )
+{
+  digitalWrite (motor1b,HIGH);
+     digitalWrite (motor1f,LOW);
+     digitalWrite (motor2b,HIGH);
+     digitalWrite (motor2f,LOW);
+     
+}
+int RIGHT ( )
+{
+
+      digitalWrite (motor1b,HIGH);
+     digitalWrite (motor1f,LOW);
+     digitalWrite (motor2b,LOW);
+     digitalWrite (motor2f,HIGH);
+     
+}
+int LEFT( )
+{
+
+      digitalWrite (motor1b,LOW);
+     digitalWrite (motor1f,HIGH);
+     digitalWrite (motor2b,HIGH);
+     digitalWrite (motor2f,LOW);
+     
+}
+int TOTALSPEED ()
+{
+
+   analogWrite (spd1,255);
+  analogWrite (spd2,255);
+}
+int HALFSPEED ()
+{
+  analogWrite (spd1,128);
+  analogWrite (spd2,128);
+}
+int QUARTERSPEED()
+{ analogWrite (spd1,64);
+analogWrite (spd2,64);
+}
 
 void setup() {
   // put your setup code here, to run once:
@@ -58,69 +107,7 @@ if (Serial.available() >0)
      
     }
     
-
-  else 
-  {
-     digitalWrite (12,LOW);
-     digitalWrite (13,LOW);
-     digitalWrite (10,LOW);
-     digitalWrite (11,LOW);
-     
-  }
-
-}}
-int FORWARD( )
-{
-   digitalWrite (motor1f,HIGH);
-     digitalWrite (motor1b,LOW);
-     digitalWrite (motor2f,HIGH);
-     digitalWrite (motor2b,LOW);
-     
-}
-int BACKWARD( )
-{
-  digitalWrite (motor1b,HIGH);
-     digitalWrite (motor1f,LOW);
-     digitalWrite (motor2b,HIGH);
-     digitalWrite (motor2f,LOW);
-     
-}
-int RIGHT ( )
-{
-
-      digitalWrite (motor1b,HIGH);
-     digitalWrite (motor1f,LOW);
-     digitalWrite (motor2b,LOW);
-     digitalWrite (motor2f,HIGH);
-     
-}
-int LEFT( )
-{
-
-      digitalWrite (motor1b,LOW);
-     digitalWrite (motor1f,HIGH);
-     digitalWrite (motor2b,HIGH);
-     digitalWrite (motor2f,LOW);
-     
-}
-int TOTALSPEED ()
-{
-
-   analogWrite (spd1,255);
-  analogWrite (spd2,255);
-}
-int HALFSPEED ()
-{
-  analogWrite (spd1,128);
-  analogWrite (spd2,128);
-}
-int QUARTERSPEED()
-{ analogWrite (spd1,64);
-analogWrite (spd2,64);
-}
-//line follower 
-void loop () {
-if (data=='6')
+else if (data=='6')
 {
   if(digitalRead(RS)==0 && digitalRead(CS)==0 && digitalRead(LS)==0)     // STOP
   {
@@ -187,14 +174,19 @@ if (data=='6')
      digitalWrite (motor2b,LOW);
      
   }}
-else;
-{
-if (data=='7')
+else if (data=='7')
   {
     digitalWrite (motor1f,LOW);
      digitalWrite (motor1b,LOW);
      digitalWrite (motor2f,LOW);
      digitalWrite (motor2b,LOW);
+     
+  } else 
+  {
+     digitalWrite (12,LOW);
+     digitalWrite (13,LOW);
+     digitalWrite (10,LOW);
+     digitalWrite (11,LOW);
      
   }
   
