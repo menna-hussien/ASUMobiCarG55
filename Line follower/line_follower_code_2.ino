@@ -119,7 +119,8 @@ int QUARTERSPEED()
 analogWrite (spd2,64);
 
 //line follower
-
+if (data=='6')
+{
   if(digitalRead(RS)==0 && digitalRead(CS)==0 && digitalRead(LS)==0)     // STOP
   {
     digitalWrite (motor1f,LOW);
@@ -184,7 +185,17 @@ analogWrite (spd2,64);
      digitalWrite (motor2f,LOW);
      digitalWrite (motor2b,LOW);
      
+  }}
+else;
+{
+if (data=='7')
+  {
+    digitalWrite (motor1f,LOW);
+     digitalWrite (motor1b,LOW);
+     digitalWrite (motor2f,LOW);
+     digitalWrite (motor2b,LOW);
+     
   }
-
   
+}
 }
