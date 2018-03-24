@@ -117,8 +117,9 @@ int HALFSPEED ()
 int QUARTERSPEED()
 { analogWrite (spd1,64);
 analogWrite (spd2,64);
-
-//line follower
+}
+//line follower 
+void loop () {
 if (data=='6')
 {
   if(digitalRead(RS)==0 && digitalRead(CS)==0 && digitalRead(LS)==0)     // STOP
