@@ -8,7 +8,14 @@ int spd2 =7;
 int LS=4;            //dah ell fe eh sensor aslan
 int CS=5;
 int RS=6;
-int FORWARD( )
+int FORWARD ( );
+int BACKWARD ( );
+int RIGHT ( );
+int LEFT ( );
+int HALFSPEED ();
+int QUARTERSPEED();
+int TOTALSPEED ();
+int FORWARD( );
 {
    digitalWrite (motor1f,HIGH);
      digitalWrite (motor1b,LOW);
@@ -71,13 +78,7 @@ pinMode(LS, INPUT);
    pinMode(CS, INPUT); 
   pinMode(RS, INPUT);
 }
-int FORWARD ( );
-int BACKWARD ( );
-int RIGHT ( );
-int LEFT ( );
-int HALFSPEED ();
-int QUARTERSPEED();
-int TOTALSPEED ();
+
 
 
 void loop() {
