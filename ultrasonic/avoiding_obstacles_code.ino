@@ -30,13 +30,13 @@ digitalWrite(5,1);
 delayMicroseconds(10);
 digitalWrite(5,0);
  float d=ultrasonic.ping_cm();
-  if (d<=20)
+  if (d<=30)
 { 
  right();
  delay(1000);
  forward();
  d=ultrasonic.ping_cm();
-  if(d<=20)
+  if(d<=30)
   {
  right();
  delay(1000);
