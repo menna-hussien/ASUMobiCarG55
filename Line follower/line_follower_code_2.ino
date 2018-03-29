@@ -109,72 +109,98 @@ if (Serial.available() >0)
     }
     
 else if (data=='6')
-{
-  if(digitalRead(RS)==0 && digitalRead(CS)==0 && digitalRead(LS)==0)     // STOP
-  {
-    digitalWrite (motor1f,LOW);
+{  if(digitalRead(RS)==1 && digitalRead(CS)==1 && digitalRead(LS)==1)     // STOP
+  {  TOTALSPEED ();
+     digitalWrite (motor1f,LOW);
      digitalWrite (motor1b,LOW);
      digitalWrite (motor2f,LOW);
      digitalWrite (motor2b,LOW);
      
-  }
-    if(digitalRead(RS)==0 && digitalRead(CS)==0 && digitalRead(LS)==1)     // Move Left
-  {
-      digitalWrite (motor1b,LOW);
-     digitalWrite (motor1f,HIGH);
-     digitalWrite (motor2b,HIGH);
-     digitalWrite (motor2f,LOW);
      
   }
-    if(digitalRead(RS)==0 && digitalRead(CS)==1 && digitalRead(LS)==0)     // Move Forward
+    if(digitalRead(RS)==1 && digitalRead(CS)==1 && digitalRead(LS)==0)     // Move Left
+  {
+    digitalWrite (motor2b,LOW);
+    delay(1);
+     digitalWrite (motor2f,HIGH);
+     delay(1);
+     digitalWrite (motor1b,HIGH);
+     delay(1);
+     digitalWrite (motor1f,LOW);  
+     delay(1);  
+  }
+    if(digitalRead(RS)==1 && digitalRead(CS)==0 && digitalRead(LS)==1)     // Move Forward
+  {
+    digitalWrite (motor1f,HIGH);
+    delay(1);
+     digitalWrite (motor1b,LOW);
+     delay(1);
+     digitalWrite (motor2f,HIGH);
+     delay(1);
+     digitalWrite (motor2b,LOW);
+    delay(1);
+    }
+    if(digitalRead(RS)==1 && digitalRead(CS)==0 && digitalRead(LS)==0)     // Move Left
+  {   TOTALSPEED ();
+      digitalWrite (motor2b,LOW);
+      delay(1);
+     digitalWrite (motor2f,HIGH);
+     delay(1);
+     digitalWrite (motor1b,HIGH);
+      delay(1);
+     digitalWrite (motor1f,LOW);
+     delay(1);
+  }
+    if(digitalRead(RS)==0 && digitalRead(CS)==1 && digitalRead(LS)==1)     // Move Right
+  {
+    TOTALSPEED ();
+      digitalWrite (motor2b,HIGH);
+       delay(1);
+     digitalWrite (motor2f,LOW);
+      delay(1);
+     digitalWrite (motor1b,LOW);
+      delay(1);
+     digitalWrite (motor1f,HIGH);
+      delay(1);
+    
+  }
+    if(digitalRead(RS)==0 && digitalRead(CS)==1 && digitalRead(LS)==0)     // Move Left
+  {
+    TOTALSPEED ();
+      digitalWrite (motor1b,LOW);
+       delay(1);
+     digitalWrite (motor1f,HIGH);
+      delay(1);
+     digitalWrite (motor2b,HIGH);
+      delay(1);
+     digitalWrite (motor2f,LOW);
+     delay(1);
+     
+  }
+    if(digitalRead(RS)==0 && digitalRead(CS)==0 && digitalRead(LS)==1)     // Move Right
+  {
+    
+      digitalWrite (motor2b,HIGH);
+       delay(1);
+     digitalWrite (motor2f,LOW);
+      delay(1);
+     digitalWrite (motor1b,LOW);
+      delay(1);
+     digitalWrite (motor1f,HIGH);
+      delay(1);
+     TOTALSPEED ();
+  }
+
+   if(digitalRead(RS)==0 && digitalRead(CS)==0 && digitalRead(LS)==0)     // forward
   {
     digitalWrite (motor1f,HIGH);
      digitalWrite (motor1b,LOW);
      digitalWrite (motor2f,HIGH);
      digitalWrite (motor2b,LOW);
      
-    }
-    if(digitalRead(RS)==0 && digitalRead(CS)==1 && digitalRead(LS)==1)     // Move Left
-  {
-      digitalWrite (motor1b,LOW);
-     digitalWrite (motor1f,HIGH);
-     digitalWrite (motor2b,HIGH);
-     digitalWrite (motor2f,LOW);
-     
-  }
-    if(digitalRead(RS)==1 && digitalRead(CS)==0 && digitalRead(LS)==0)     // Move Rght
-  {
-    
-      digitalWrite (motor1b,HIGH);
-     digitalWrite (motor1f,LOW);
-     digitalWrite (motor2b,LOW);
-     digitalWrite (motor2f,HIGH);
-  }
-    if(digitalRead(RS)==1 && digitalRead(CS)==0 && digitalRead(LS)==1)     // Move Left
-  {
-      digitalWrite (motor1b,LOW);
-     digitalWrite (motor1f,HIGH);
-     digitalWrite (motor2b,HIGH);
-     digitalWrite (motor2f,LOW);
-     
-  }
-    if(digitalRead(RS)==1 && digitalRead(CS)==1 && digitalRead(LS)==0)     // Move Right
-  {
-    
-      digitalWrite (motor1b,HIGH);
-     digitalWrite (motor1f,LOW);
-     digitalWrite (motor2b,LOW);
-     digitalWrite (motor2f,HIGH);
   }
 
-   if(digitalRead(RS)==1 && digitalRead(CS)==1 && digitalRead(LS)==1)     // stop
-  {
-    digitalWrite (motor1f,LOW);
-     digitalWrite (motor1b,LOW);
-     digitalWrite (motor2f,LOW);
-     digitalWrite (motor2b,LOW);
-     
-  }}
+ }
 else if (data=='7')
   {
     digitalWrite (motor1f,LOW);
