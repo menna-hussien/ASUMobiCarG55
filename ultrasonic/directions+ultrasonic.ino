@@ -49,28 +49,16 @@ if(Serial.available()>0){
   char r=Serial.read();
   switch (r) {
     case 'F' : //forward
-     digitalWrite(13,1);
-  digitalWrite(12,0);
-  digitalWrite(11,1);
-  digitalWrite(10,0);
+     forward();
     break;
     case 'B' : //backward
-    digitalWrite(13,0);
-  digitalWrite(12,1);
-  digitalWrite(11,0);
-  digitalWrite(10,1);
+    backward();
     break;
     case 'R' : //right
-    digitalWrite(13,1);
-  digitalWrite(12,0);
-  digitalWrite(11,0);
-  digitalWrite(10,1);
+   right();
     break;
     case '4' : //left
-    digitalWrite(13,0);
-  digitalWrite(12,1);
-  digitalWrite(11,1);
-  digitalWrite(10,0);
+    left();
     break;
     default: //stop
     digitalWrite(13,0);
@@ -93,4 +81,17 @@ void right()
   digitalWrite(12,LOW);
  digitalWrite(11,LOW); 
   digitalWrite(10,HIGH); 
+}
+void left()
+{
+   digitalWrite(13,LOW);
+  digitalWrite(12,HIGH);
+  digitalWrite(11,HIGH);
+  digitalWrite(10,LOW);
+}
+void backward()
+{  digitalWrite(13,LOW);
+  digitalWrite(12,HIGH);
+  digitalWrite(11,LOW);
+  digitalWrite(10,HIGH);
 }
