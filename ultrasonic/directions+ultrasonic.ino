@@ -5,16 +5,13 @@ NewPing ultrasonic(trigger,echo);
 void setup() {
   // put your setup code here, to run once:
 Serial.begin(9600);
-pinMode(13,OUTPUT);
-pinMode(12,OUTPUT);
-pinMode(11,OUTPUT);
-pinMode(10,OUTPUT);
-pinMode(9,OUTPUT);
+  for (int i=9;i<=13;i++)
+{pinMode (i,OUTPUT);
+}
 pinMode(6,OUTPUT);
    pinMode(5,OUTPUT);
   pinMode(2,INPUT);
 }
-
 void loop() {
   // put your main code here, to run repeatedly:
   digitalWrite(9,HIGH);
@@ -61,10 +58,7 @@ if(Serial.available()>0){
     left();
     break;
     default: //stop
-    digitalWrite(13,0);
-  digitalWrite(12,0);
-  digitalWrite(11,0);
-  digitalWrite(10,0);
+   stop();
   }
 }
 }
@@ -94,4 +88,11 @@ void backward()
   digitalWrite(12,HIGH);
   digitalWrite(11,LOW);
   digitalWrite(10,HIGH);
+}
+void stop()
+{
+   digitalWrite(13,LOW);
+  digitalWrite(12,LOW);
+  digitalWrite(11,LOW);
+  digitalWrite(10,LOW);
 }
