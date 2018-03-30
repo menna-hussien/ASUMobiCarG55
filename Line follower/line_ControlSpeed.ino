@@ -162,6 +162,8 @@ if(data==7){
 
    else 
   {
+        analogWrite (spd1,0);
+     analogWrite (spd2,0);
      digitalWrite (12,LOW);
      digitalWrite (13,LOW);
      digitalWrite (10,LOW);
