@@ -5,9 +5,11 @@ NewPing ultrasonic(trigger,echo);
 void setup() {
   // put your setup code here, to run once:
 Serial.begin(9600);
-  for (int i=9;i<=13;i++)
-{pinMode (i,OUTPUT);
-}
+  pinMode(13,OUTPUT);
+  pinMode(12,OUTPUT);
+  pinMode(11,OUTPUT);
+  pinMode(10,OUTPUT);
+  pinMode(9,OUTPUT);
 pinMode(6,OUTPUT);
    pinMode(5,OUTPUT);
   pinMode(2,INPUT);
