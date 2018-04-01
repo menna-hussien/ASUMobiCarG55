@@ -19,13 +19,7 @@ void loop() {
   // put your main code here, to run repeatedly:
   digitalWrite(9,HIGH);
   digitalWrite(6,HIGH);
-  digitalWrite(5,0);
-delayMicroseconds(2);
-digitalWrite(5,1);
-delayMicroseconds(10);
-digitalWrite(5,0);
-  duration = pulseIn(2,HIGH);
-  d= (duration/2)*0.034 ; 
+ usReading();
    if (d<=30)
 { 
  right();
@@ -106,4 +100,15 @@ void stop()
   digitalWrite(12,LOW);
   digitalWrite(11,LOW);
   digitalWrite(10,LOW);
+}
+long usReadig()
+{
+  digitalWrite(5,0);
+delayMicroseconds(2);
+digitalWrite(5,1);
+delayMicroseconds(10);
+digitalWrite(5,0);
+  duration = pulseIn(2,HIGH);
+  d= (duration/2)*0.034 ; 
+  return d;
 }
