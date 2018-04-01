@@ -23,15 +23,15 @@ void loop() {
    if (d<=30)
 { 
  right();
- delay(300);
+ delay(500);
      stop();
      delay(500);
  forward();
- d=ultrasonic.ping_cm();
+usReading();
   if(d<=30)
   {
  right();
- delay(300);
+ delay(500);
  stop();
     delay(500);
  forward();
