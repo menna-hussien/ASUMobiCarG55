@@ -25,15 +25,17 @@ digitalWrite(5,0);
    if (d<=30)
 { 
  right();
- delay(1000);
+ delay(300);
      stop();
+     delay(500);
  forward();
  d=ultrasonic.ping_cm();
   if(d<=30)
   {
  right();
- delay(1000);
+ delay(300);
  stop();
+    delay(500);
  forward();
 }
   else {
