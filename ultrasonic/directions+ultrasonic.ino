@@ -24,16 +24,12 @@ void loop() {
 { 
  right();
  delay(500);
-     stop();
-     delay(500);
  forward();
 usReading();
   if(d<=30)
   {
  right();
  delay(500);
- stop();
-    delay(500);
  forward();
 }
   else {
