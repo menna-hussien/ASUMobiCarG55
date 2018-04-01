@@ -1,6 +1,7 @@
 #include<NewPing.h>
 const int trigger=5;
 const int echo=2;
+long duration,d ;
 NewPing ultrasonic(trigger,echo);
 void setup() {
   // put your setup code here, to run once:
@@ -23,7 +24,8 @@ delayMicroseconds(2);
 digitalWrite(5,1);
 delayMicroseconds(10);
 digitalWrite(5,0);
- float d=ultrasonic.ping_cm();
+  duration = pulseIn(2,HIGH);
+  d= (duration/2)*0.034 ; 
    if (d<=30)
 { 
  right();
