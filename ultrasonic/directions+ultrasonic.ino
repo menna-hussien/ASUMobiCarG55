@@ -61,7 +61,7 @@ if(Serial.available()>0){
     case 'R' : //right
    right();
     break;
-    case '4' : //left
+    case 'L' : //left
     left();
     break;
     default: //stop
@@ -78,17 +78,21 @@ void forward()
 }
 void right()
 {
-  digitalWrite(13,HIGH);
-  digitalWrite(12,LOW);
- digitalWrite(11,LOW); 
-  digitalWrite(10,HIGH); 
-}
-void left()
-{
+  
    digitalWrite(13,LOW);
   digitalWrite(12,HIGH);
   digitalWrite(11,HIGH);
   digitalWrite(10,LOW);
+}
+void left()
+{
+  
+   digitalWrite(13,HIGH);
+  digitalWrite(12,LOW);
+ digitalWrite(11,LOW); 
+  digitalWrite(10,HIGH); 
+  
+  
 }
 void backward()
 {  digitalWrite(13,LOW);
