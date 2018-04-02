@@ -26,6 +26,8 @@ void loop() {
   digitalWrite(spd1,HIGH);
   digitalWrite(spd2,HIGH);
  usReading();
+  if(Serial.available()>0)
+  {
    if (d<=30)
 { 
  right();
@@ -63,7 +65,7 @@ if(Serial.available()>0){
     default: //stop
    stop();
   }
-}
+}}
 }
 void forward()
 {
