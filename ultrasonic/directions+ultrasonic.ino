@@ -32,20 +32,9 @@ void loop() {
  delay(300);
  stop();
  delay(1000);
-usReading();
-  if(d<=30)
-  {
- right();
- delay(300);
-    stop();
-    delay(1000);
-}
   else {
   forward();
 }
-}
-else {
-   forward();
 }
 
   switch (r) {
