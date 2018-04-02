@@ -23,11 +23,11 @@ pinMode(spd2,OUTPUT);
 }
 void loop() {
   // put your main code here, to run repeatedly:
- usReading();
   if(Serial.available()>0)
   { r=Serial.read();
+   usReading();
    if (d<=30)
-{ 
+{  Serial.println("d<30");
  right();
  delay(500);
  forward();
