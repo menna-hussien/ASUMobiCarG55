@@ -32,7 +32,6 @@ void loop() {
  delay(300);
  stop();
  delay(1000);
- forward();
 usReading();
   if(d<=30)
   {
@@ -40,7 +39,6 @@ usReading();
  delay(300);
     stop();
     delay(1000);
- forward();
 }
   else {
   forward();
