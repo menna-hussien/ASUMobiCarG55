@@ -27,7 +27,7 @@ void loop() {
   digitalWrite(spd2,HIGH);
  usReading();
   if(Serial.available()>0)
-  {
+  { r=Serial.read();
    if (d<=30)
 { 
  right();
@@ -47,8 +47,7 @@ usReading();
 else {
    forward();
 }
-if(Serial.available()>0){
-  char r=Serial.read();
+
   switch (r) {
     case 'F' : //forward
      forward();
@@ -65,7 +64,7 @@ if(Serial.available()>0){
     default: //stop
    stop();
   }
-}}
+}
 }
 void forward()
 {
