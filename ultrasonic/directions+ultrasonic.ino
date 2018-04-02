@@ -16,15 +16,15 @@ Serial.begin(9600);
   pinMode(motor1b,OUTPUT);
   pinMode(motor2f,OUTPUT);
   pinMode(motor2b,OUTPUT);
-  pinMode(9,OUTPUT);
-pinMode(6,OUTPUT);
+  pinMode(spd1,OUTPUT);
+pinMode(spd2,OUTPUT);
    pinMode(5,OUTPUT);
   pinMode(2,INPUT);
 }
 void loop() {
   // put your main code here, to run repeatedly:
-  digitalWrite(9,HIGH);
-  digitalWrite(6,HIGH);
+  digitalWrite(spd1,HIGH);
+  digitalWrite(spd2,HIGH);
  usReading();
    if (d<=30)
 { 
