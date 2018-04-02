@@ -67,43 +67,43 @@ if(Serial.available()>0){
 }
 void forward()
 {
-   digitalWrite(13,HIGH);
-  digitalWrite(12,LOW);
-  digitalWrite(11,HIGH); 
-  digitalWrite(10,LOW);
+   digitalWrite(motor1f,HIGH);
+  digitalWrite(motor1b,LOW);
+  digitalWrite(motor2f,HIGH); 
+  digitalWrite(motor2b,LOW);
 }
 void right()
 {
   
-   digitalWrite(13,LOW);
-  digitalWrite(12,HIGH);
-  digitalWrite(11,HIGH);
-  digitalWrite(10,LOW);
+   digitalWrite(motor1f,LOW);
+  digitalWrite(motor1b,HIGH);
+  digitalWrite(motor2f,HIGH);
+  digitalWrite(motor2b,LOW);
 }
 void left()
 {
   
-   digitalWrite(13,HIGH);
-  digitalWrite(12,LOW);
- digitalWrite(11,LOW); 
-  digitalWrite(10,HIGH); 
+   digitalWrite(motor1f,HIGH);
+  digitalWrite(motor1b,LOW);
+ digitalWrite(motor2f,LOW); 
+  digitalWrite(motor2b,HIGH); 
   
   
 }
 void backward()
-{  digitalWrite(13,LOW);
-  digitalWrite(12,HIGH);
-  digitalWrite(11,LOW);
-  digitalWrite(10,HIGH);
+{  digitalWrite(motor1f,LOW);
+  digitalWrite(motor1b,HIGH);
+  digitalWrite(motor2f,LOW);
+  digitalWrite(motor2b,HIGH);
 }
 void stop()
 {
-   digitalWrite(13,LOW);
-  digitalWrite(12,LOW);
-  digitalWrite(11,LOW);
-  digitalWrite(10,LOW);
+   digitalWrite(motor1f,LOW);
+  digitalWrite(motor1b,LOW);
+  digitalWrite(motor2f,LOW);
+  digitalWrite(motor2b,LOW);
 }
-long usReadig()
+long usReading()
 {
   digitalWrite(5,0);
 delayMicroseconds(2);
