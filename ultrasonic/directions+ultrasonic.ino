@@ -29,13 +29,17 @@ void loop() {
    if (d<=30)
 {  Serial.println("d<30");
  right();
- delay(500);
+ delay(300);
+ stop();
+ delay(1000);
  forward();
 usReading();
   if(d<=30)
   {
  right();
- delay(500);
+ delay(300);
+    stop();
+    delay(1000);
  forward();
 }
   else {
