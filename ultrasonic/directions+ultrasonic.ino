@@ -1,15 +1,21 @@
 #include<NewPing.h>
 const int trigger=5;
 const int echo=2;
+int motor1f = 13;
+int motor1b = 12;
+int motor2f = 11;
+int motor2b = 10;
+int spd1 = 9;
+int spd2 = 6;
 long duration,d ;
 NewPing ultrasonic(trigger,echo);
 void setup() {
   // put your setup code here, to run once:
 Serial.begin(9600);
-  pinMode(13,OUTPUT);
-  pinMode(12,OUTPUT);
-  pinMode(11,OUTPUT);
-  pinMode(10,OUTPUT);
+  pinMode(moror1f,OUTPUT);
+  pinMode(motor1b,OUTPUT);
+  pinMode(motor2f,OUTPUT);
+  pinMode(motor2b,OUTPUT);
   pinMode(9,OUTPUT);
 pinMode(6,OUTPUT);
    pinMode(5,OUTPUT);
