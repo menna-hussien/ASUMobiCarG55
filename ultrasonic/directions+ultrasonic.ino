@@ -36,7 +36,8 @@ void loop() {
   forward();
 }
 }
-
+ if (USReadings() > 30) {
+      Serial.println("USReadings()>30");
   switch (r) {
     case 'F' : //forward
      forward();
@@ -53,6 +54,7 @@ void loop() {
     default: //stop
    stop();
   }
+ }
 }
 }
 void forward()
