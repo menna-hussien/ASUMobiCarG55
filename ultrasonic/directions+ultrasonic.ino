@@ -23,8 +23,6 @@ pinMode(spd2,OUTPUT);
 }
 void loop() {
   // put your main code here, to run repeatedly:
-  digitalWrite(spd1,HIGH);
-  digitalWrite(spd2,HIGH);
  usReading();
   if(Serial.available()>0)
   { r=Serial.read();
@@ -72,6 +70,8 @@ void forward()
   digitalWrite(motor1b,LOW);
   digitalWrite(motor2f,HIGH); 
   digitalWrite(motor2b,LOW);
+   digitalWrite(spd1,HIGH);
+  digitalWrite(spd2,HIGH);
 }
 void right()
 {
@@ -80,6 +80,8 @@ void right()
   digitalWrite(motor1b,HIGH);
   digitalWrite(motor2f,HIGH);
   digitalWrite(motor2b,LOW);
+   digitalWrite(spd1,HIGH);
+  digitalWrite(spd2,HIGH);
 }
 void left()
 {
@@ -88,7 +90,8 @@ void left()
   digitalWrite(motor1b,LOW);
  digitalWrite(motor2f,LOW); 
   digitalWrite(motor2b,HIGH); 
-  
+   digitalWrite(spd1,HIGH);
+  digitalWrite(spd2,HIGH);
   
 }
 void backward()
@@ -96,6 +99,8 @@ void backward()
   digitalWrite(motor1b,HIGH);
   digitalWrite(motor2f,LOW);
   digitalWrite(motor2b,HIGH);
+  digitalWrite(spd1,HIGH);
+  digitalWrite(spd2,HIGH);
 }
 void stop()
 {
@@ -103,6 +108,8 @@ void stop()
   digitalWrite(motor1b,LOW);
   digitalWrite(motor2f,LOW);
   digitalWrite(motor2b,LOW);
+   digitalWrite(spd1,HIGH);
+  digitalWrite(spd2,HIGH);
 }
 long usReading()
 {
