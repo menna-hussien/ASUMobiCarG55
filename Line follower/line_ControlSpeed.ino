@@ -68,7 +68,7 @@ pinMode(LS, INPUT);
 
 void loop() {
 
-if(data==7){
+if(data==U){
   if(digitalRead(RS)==0 && digitalRead(CS)==0 && digitalRead(LS)==0)     // STOP
   {  
      analogWrite (spd1,0);
