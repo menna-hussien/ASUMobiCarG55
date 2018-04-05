@@ -71,7 +71,7 @@ void loop() {
      digitalWrite (spd1,HIGH);
      digitalWrite (spd2,HIGH);
    
-  if(digitalRead(RS)==1 && digitalRead(CS)==1 && digitalRead(LS)==1)     // STOP
+  if(digitalRead(RS)==0 && digitalRead(CS)==0 && digitalRead(LS)==0)     // STOP
   {  //TOTALSPEED ();
      digitalWrite (motor1f,LOW);
      digitalWrite (motor1b,LOW);
@@ -80,7 +80,7 @@ void loop() {
      
      
   }
-   else if(digitalRead(RS)==1 && digitalRead(CS)==1 && digitalRead(LS)==0)     // Move Left
+   else if(digitalRead(RS)==0 && digitalRead(CS)==0 && digitalRead(LS)==1)     // Move Left
   {
     digitalWrite (motor2b,LOW);
     delay(1);
@@ -91,7 +91,7 @@ void loop() {
      digitalWrite (motor1f,LOW);  
      delay(1);  
   }
-   else if(digitalRead(RS)==1 && digitalRead(CS)==0 && digitalRead(LS)==1)     // Move Forward
+   else if(digitalRead(RS)==0 && digitalRead(CS)==1 && digitalRead(LS)==0)     // Move Forward
   {
     digitalWrite (motor1f,HIGH);
     delay(1);
@@ -102,7 +102,7 @@ void loop() {
      digitalWrite (motor2b,LOW);
     delay(1);
     }
-    else if(digitalRead(RS)==1 && digitalRead(CS)==0 && digitalRead(LS)==0)     // Move Left
+    else if(digitalRead(RS)==0 && digitalRead(CS)==1 && digitalRead(LS)==1)     // Move Left
   {  // TOTALSPEED ();
       digitalWrite (motor2b,LOW);
       delay(1);
@@ -113,7 +113,7 @@ void loop() {
      digitalWrite (motor1f,LOW);
      delay(1);
   }
-    else if(digitalRead(RS)==0 && digitalRead(CS)==1 && digitalRead(LS)==1)     // Move Right
+    else if(digitalRead(RS)==1 && digitalRead(CS)==0 && digitalRead(LS)==0)     // Move Right
   {
     //TOTALSPEED ();
       digitalWrite (motor2b,HIGH);
@@ -126,7 +126,7 @@ void loop() {
       delay(1);
     
   }
-   else if(digitalRead(RS)==0 && digitalRead(CS)==1 && digitalRead(LS)==0)     // Move Left
+   else if(digitalRead(RS)==1 && digitalRead(CS)==0 && digitalRead(LS)==1)     // Move Left
   {
     //TOTALSPEED ();
       digitalWrite (motor1b,LOW);
@@ -139,7 +139,7 @@ void loop() {
      delay(1);
      
   }
-   else if(digitalRead(RS)==0 && digitalRead(CS)==0 && digitalRead(LS)==1)     // Move Right
+   else if(digitalRead(RS)==1 && digitalRead(CS)==1 && digitalRead(LS)==0)     // Move Right
   {
     
       digitalWrite (motor2b,HIGH);
@@ -153,7 +153,7 @@ void loop() {
      TOTALSPEED ();
   }
 
-  else if(digitalRead(RS)==1 && digitalRead(CS)==1 && digitalRead(LS)==1)     // stop
+  else if(digitalRead(RS)==0 && digitalRead(CS)==0 && digitalRead(LS)==0)     // stop
   {
     digitalWrite (motor1f,HIGH);
      digitalWrite (motor1b,HIGH);
