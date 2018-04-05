@@ -1,10 +1,4 @@
-int FORWARD ( );
-int BACKWARD ( );
-int RIGHT ( );
-int LEFT ( );
-int HALFSPEED ();
-int QUARTERSPEED();
-void TOTALSPEED ();
+
 char data = 0;
 int motor1f =13;
 int motor1b=12;
@@ -13,42 +7,57 @@ int motor2b =10;
 int spd1 =9;
 int spd2 =6;
 int LS=7;            //dah ell fe eh sensor aslan
-int CS=5;
+int CS=4;
 int RS=3;
-int FORWARD( )
-{
-   digitalWrite (motor1f,HIGH);
-     digitalWrite (motor1b,LOW);
-     digitalWrite (motor2f,HIGH);
-     digitalWrite (motor2b,LOW);
-     
-}
-int BACKWARD( )
-{
-  digitalWrite (motor1b,HIGH);
-     digitalWrite (motor1f,LOW);
-     digitalWrite (motor2b,HIGH);
-     digitalWrite (motor2f,LOW);
-     
-}
-int RIGHT ( )
-{
-
-      digitalWrite (motor1b,HIGH);
-     digitalWrite (motor1f,LOW);
-     digitalWrite (motor2b,LOW);
-     digitalWrite (motor2f,HIGH);
-     
-}
-int LEFT()
-{
-
-      digitalWrite (motor1b,LOW);
-     digitalWrite (motor1f,HIGH);
-     digitalWrite (motor2b,HIGH);
-     digitalWrite (motor2f,LOW);
-     
-}
+//int TOTALSPEED ()
+//{
+//
+//   analogWrite (spd1,255);
+//  analogWrite (spd2,255);
+//}
+//int HALFSPEED ()
+//{
+//  analogWrite (spd1,128);
+//  analogWrite (spd2,128);
+//}
+//int QUARTERSPEED()
+//{ analogWrite (spd1,64);
+//analogWrite (spd2,64);
+//}
+//int FORWARD( )
+//{
+//   digitalWrite (motor1f,HIGH);
+//     digitalWrite (motor1b,LOW);
+//     digitalWrite (motor2f,HIGH);
+//     digitalWrite (motor2b,LOW);
+//     
+//}
+//int BACKWARD( )
+//{
+//  digitalWrite (motor1b,HIGH);
+//     digitalWrite (motor1f,LOW);
+//     digitalWrite (motor2b,HIGH);
+//     digitalWrite (motor2f,LOW);
+//     
+//}
+//int RIGHT ( )
+//{
+//
+//      digitalWrite (motor1b,HIGH);
+//     digitalWrite (motor1f,LOW);
+//     digitalWrite (motor2b,LOW);
+//     digitalWrite (motor2f,HIGH);
+//     
+//}
+//int LEFT()
+//{
+//
+//      digitalWrite (motor1b,LOW);
+//     digitalWrite (motor1f,HIGH);
+//     digitalWrite (motor2b,HIGH);
+//     digitalWrite (motor2f,LOW);
+//     
+//}
 
 void setup() {
   // put your setup code here, to run once:
@@ -70,25 +79,23 @@ void loop() {
 
      digitalWrite (spd1,HIGH);
      digitalWrite (spd2,HIGH);
-   
   if(digitalRead(RS)==0 && digitalRead(CS)==0 && digitalRead(LS)==0)     // STOP
-  {  //TOTALSPEED ();
+  { // TOTALSPEED ();
      digitalWrite (motor1f,LOW);
      digitalWrite (motor1b,LOW);
      digitalWrite (motor2f,LOW);
      digitalWrite (motor2b,LOW);
-     
-     
+    
   }
-   else if(digitalRead(RS)==0 && digitalRead(CS)==0 && digitalRead(LS)==1)     // Move Left
+    else if(digitalRead(RS)==0 && digitalRead(CS)==0 && digitalRead(LS)==1)     // Move Left
   {
-    digitalWrite (motor2b,LOW);
+    digitalWrite (motor2b,HIGH);
     delay(1);
-     digitalWrite (motor2f,HIGH);
+     digitalWrite (motor2f,LOW);
      delay(1);
-     digitalWrite (motor1b,HIGH);
+     digitalWrite (motor1b,LOW);
      delay(1);
-     digitalWrite (motor1f,LOW);  
+     digitalWrite (motor1f,HIGH);  
      delay(1);  
   }
    else if(digitalRead(RS)==0 && digitalRead(CS)==1 && digitalRead(LS)==0)     // Move Forward
@@ -102,63 +109,68 @@ void loop() {
      digitalWrite (motor2b,LOW);
     delay(1);
     }
-    else if(digitalRead(RS)==0 && digitalRead(CS)==1 && digitalRead(LS)==1)     // Move Left
-  {  // TOTALSPEED ();
-      digitalWrite (motor2b,LOW);
+     
+      else if(digitalRead(RS)==0 && digitalRead(CS)==1 && digitalRead(LS)==1)   // Move Left
+  {   //TOTALSPEED ();
+      digitalWrite (motor2b,HIGH);
       delay(1);
-     digitalWrite (motor2f,HIGH);
+     digitalWrite (motor2f,LOW);
      delay(1);
+     digitalWrite (motor1b,LOW);
+      delay(1);
+     digitalWrite (motor1f,HIGH);
+     delay(1);
+  }
+      else if(digitalRead(RS)==1 && digitalRead(CS)==0 && digitalRead(LS)==0)  // Move Right
+  {
+    //TOTALSPEED ();
+      digitalWrite (motor2b,LOW);
+       delay(1);
+     digitalWrite (motor2f,HIGH);
+      delay(1);
      digitalWrite (motor1b,HIGH);
       delay(1);
      digitalWrite (motor1f,LOW);
-     delay(1);
-  }
-    else if(digitalRead(RS)==1 && digitalRead(CS)==0 && digitalRead(LS)==0)     // Move Right
-  {
-    //TOTALSPEED ();
-      digitalWrite (motor2b,HIGH);
-       delay(1);
-     digitalWrite (motor2f,LOW);
-      delay(1);
-     digitalWrite (motor1b,LOW);
-      delay(1);
-     digitalWrite (motor1f,HIGH);
       delay(1);
     
   }
-   else if(digitalRead(RS)==1 && digitalRead(CS)==0 && digitalRead(LS)==1)     // Move Left
+    else if(digitalRead(RS)==1 && digitalRead(CS)==0 && digitalRead(LS)==1)     // Move RIGHT
   {
     //TOTALSPEED ();
-      digitalWrite (motor1b,LOW);
+      digitalWrite (motor1b,HIGH);
        delay(1);
-     digitalWrite (motor1f,HIGH);
+     digitalWrite (motor1f,LOW);
       delay(1);
-     digitalWrite (motor2b,HIGH);
+     digitalWrite (motor2b,LOW);
       delay(1);
-     digitalWrite (motor2f,LOW);
+     digitalWrite (motor2f,HIGH);
      delay(1);
      
   }
-   else if(digitalRead(RS)==1 && digitalRead(CS)==1 && digitalRead(LS)==0)     // Move Right
+    else if(digitalRead(RS)==1 && digitalRead(CS)==1 && digitalRead(LS)==0)     // Move Right
   {
     
-      digitalWrite (motor2b,HIGH);
+      digitalWrite (motor2b,LOW);
        delay(1);
-     digitalWrite (motor2f,LOW);
+     digitalWrite (motor2f,HIGH);
       delay(1);
-     digitalWrite (motor1b,LOW);
+     digitalWrite (motor1b,HIGH);
       delay(1);
-     digitalWrite (motor1f,HIGH);
+     digitalWrite (motor1f,LOW);
       delay(1);
-     TOTALSPEED ();
+    // TOTALSPEED ();
   }
 
-  else if(digitalRead(RS)==0 && digitalRead(CS)==0 && digitalRead(LS)==0)     // stop
+  else if(digitalRead(RS)==1 && digitalRead(CS)==1 && digitalRead(LS)==1)     // forward
   {
     digitalWrite (motor1f,HIGH);
-     digitalWrite (motor1b,HIGH);
+    delay(1);
+     digitalWrite (motor1b,LOW);
+      delay(1);
      digitalWrite (motor2f,HIGH);
-     digitalWrite (motor2b,HIGH);
+      delay(1);
+     digitalWrite (motor2b,LOW);
+      delay(1);
      
   }
 
@@ -172,21 +184,5 @@ void loop() {
      
   }
   
-}
-
-void TOTALSPEED ()
-{
-
-   analogWrite (spd1,255);
-  analogWrite (spd2,255);
-}
-int HALFSPEED ()
-{
-  analogWrite (spd1,128);
-  analogWrite (spd2,128);
-}
-int QUARTERSPEED()
-{ analogWrite (spd1,64);
-analogWrite (spd2,64);
 }
 
