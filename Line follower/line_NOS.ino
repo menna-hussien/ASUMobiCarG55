@@ -10,9 +10,9 @@ int motor1f =13;
 int motor1b=12;
 int motor2f=11;
 int motor2b =10;
-int spd1 =8;
-int spd2 =7;
-int LS=4;            //dah ell fe eh sensor aslan
+int spd1 =9;
+int spd2 =6;
+int LS=7;            //dah ell fe eh sensor aslan
 int CS=5;
 int RS=3;
 int FORWARD( )
@@ -68,9 +68,11 @@ pinMode(LS, INPUT);
 
 void loop() {
 
-
+     digitalWrite (spd1,HIGH);
+     digitalWrite (spd2,HIGH);
+   
   if(digitalRead(RS)==1 && digitalRead(CS)==1 && digitalRead(LS)==1)     // STOP
-  {  TOTALSPEED ();
+  {  //TOTALSPEED ();
      digitalWrite (motor1f,LOW);
      digitalWrite (motor1b,LOW);
      digitalWrite (motor2f,LOW);
@@ -101,7 +103,7 @@ void loop() {
     delay(1);
     }
     if(digitalRead(RS)==1 && digitalRead(CS)==0 && digitalRead(LS)==0)     // Move Left
-  {   TOTALSPEED ();
+  {  // TOTALSPEED ();
       digitalWrite (motor2b,LOW);
       delay(1);
      digitalWrite (motor2f,HIGH);
@@ -113,7 +115,7 @@ void loop() {
   }
     if(digitalRead(RS)==0 && digitalRead(CS)==1 && digitalRead(LS)==1)     // Move Right
   {
-    TOTALSPEED ();
+    //TOTALSPEED ();
       digitalWrite (motor2b,HIGH);
        delay(1);
      digitalWrite (motor2f,LOW);
@@ -126,7 +128,7 @@ void loop() {
   }
     if(digitalRead(RS)==0 && digitalRead(CS)==1 && digitalRead(LS)==0)     // Move Left
   {
-    TOTALSPEED ();
+    //TOTALSPEED ();
       digitalWrite (motor1b,LOW);
        delay(1);
      digitalWrite (motor1f,HIGH);
