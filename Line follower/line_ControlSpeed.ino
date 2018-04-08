@@ -86,13 +86,13 @@ if(data==U){
        analogWrite (spd1,255);
      analogWrite (spd2,128);
     digitalWrite (motor1f,HIGH);
-    delay(1);
+    
      digitalWrite (motor1b,LOW);
-     delay(1);
+     
      digitalWrite (motor2f,HIGH);
-     delay(1);
+     
      digitalWrite (motor2b,LOW);
-    delay(1);
+    
     
   }
     else if(digitalRead(RS)==1 && digitalRead(CS)==0 && digitalRead(LS)==1)     // Move Forward with full speed Edited
@@ -112,13 +112,13 @@ if(data==U){
    {   analogWrite (spd1,255);
      analogWrite (spd2,64);
      digitalWrite (motor1f,HIGH);
-    delay(1);
+   
      digitalWrite (motor1b,LOW);
-     delay(1);
+     
      digitalWrite (motor2f,HIGH);
-     delay(1);
+     
      digitalWrite (motor2b,LOW);
-    delay(1);
+   
   }
   
   else if(digitalRead(RS)==1 && digitalRead(CS)==0 && digitalRead(LS)==0)     // Move Left with slight angle edited
@@ -126,13 +126,13 @@ if(data==U){
      analogWrite (spd1,128);
      analogWrite (spd2,255);
     digitalWrite (motor1f,HIGH);
-    delay(1);
+    
      digitalWrite (motor1b,LOW);
-     delay(1);
+     
      digitalWrite (motor2f,HIGH);
-     delay(1);
+     
      digitalWrite (motor2b,LOW);
-    delay(1);
+    
     
   }
 
@@ -141,13 +141,13 @@ if(data==U){
       analogWrite (spd1,64);
      analogWrite (spd2,255);
    digitalWrite (motor1f,HIGH);
-    delay(1);
+
      digitalWrite (motor1b,LOW);
-     delay(1);
+     
      digitalWrite (motor2f,HIGH);
-     delay(1);
+
      digitalWrite (motor2b,LOW);
-    delay(1);
+ 
   }
 
    else if(digitalRead(RS)==1 && digitalRead(CS)==1 && digitalRead(LS)==1)     // stop
