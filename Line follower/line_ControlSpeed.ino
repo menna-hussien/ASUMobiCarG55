@@ -15,40 +15,7 @@ int spd2 =6;  // motor elyemen
 int LS=4;            //dah ell fe eh sensor aslan
 int CS=5;
 int RS=3;
-int FORWARD( )
-{
-   digitalWrite (motor1f,HIGH);
-     digitalWrite (motor1b,LOW);
-     digitalWrite (motor2f,HIGH);
-     digitalWrite (motor2b,LOW);
-     
-}
-int BACKWARD( )
-{
-  digitalWrite (motor1b,HIGH);
-     digitalWrite (motor1f,LOW);
-     digitalWrite (motor2b,HIGH);
-     digitalWrite (motor2f,LOW);
-     
-}
-int RIGHT ( )
-{
 
-      digitalWrite (motor1b,HIGH);
-     digitalWrite (motor1f,LOW);
-     digitalWrite (motor2b,LOW);
-     digitalWrite (motor2f,HIGH);
-     
-}
-int LEFT()
-{
-
-      digitalWrite (motor1b,LOW);
-     digitalWrite (motor1f,HIGH);
-     digitalWrite (motor2b,HIGH);
-     digitalWrite (motor2f,LOW);
-     
-}
 
 void setup() {
   // put your setup code here, to run once:
@@ -100,13 +67,13 @@ if(data==U){
     analogWrite (spd1,255);
      analogWrite (spd2,255);
     digitalWrite (motor1f,HIGH);
-    delay(1);
+    
      digitalWrite (motor1b,LOW);
-     delay(1);
+     
      digitalWrite (motor2f,HIGH);
-     delay(1);
+     
      digitalWrite (motor2b,LOW);
-    delay(1);
+ 
     }
     else if(digitalRead(RS)==0 && digitalRead(CS)==1 && digitalRead(LS)==1)     // Move Right with greater angle Edited
    {   analogWrite (spd1,255);
@@ -174,19 +141,4 @@ if(data==U){
 }
 }
 
-void TOTALSPEED ()
-{
-
-   analogWrite (spd1,255);
-  analogWrite (spd2,255);
-}
-int HALFSPEED ()
-{
-  analogWrite (spd1,128);
-  analogWrite (spd2,128);
-}
-int QUARTERSPEED()
-{ analogWrite (spd1,64);
-analogWrite (spd2,64);
-}
 
