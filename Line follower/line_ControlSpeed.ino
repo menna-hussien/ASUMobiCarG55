@@ -16,7 +16,7 @@ int motor2f=11;
 int motor2b =10;
 
 int LS=4;            //dah ell fe eh sensor aslan
-int CS=5;
+int CS=7;
 int RS=6;
 #define spd1 8 // MOTOR ELSHEMAL
 
