@@ -144,7 +144,7 @@ if(data=='U'){
    else if(digitalRead(RS)==0 && digitalRead(CS)==0 && digitalRead(LS)==1)     // Move Right with slight angle Edited
   {
     
-      int RIGHT ( );
+       RIGHT ( );
     
     
   }
