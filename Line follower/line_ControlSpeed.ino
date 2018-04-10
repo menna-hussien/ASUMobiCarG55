@@ -130,7 +130,10 @@ pinMode(LS, INPUT);
 
 
 void loop() {
+ if (Serial.available() > 0)
+  {
 
+    data = Serial.read();
 if(data=='U'){
   if(digitalRead(RS)==0 && digitalRead(CS)==0 && digitalRead(LS)==0)     // STOP
   {  
@@ -180,5 +183,5 @@ if(data=='U'){
   } delay(10); 
   data =0;
 }
+  }
 }
-
