@@ -192,7 +192,7 @@ void loop() {
        STOP ();
      
   } 
-  delay(10); 
+  delay(1000); 
   //data =0;
 }
   
