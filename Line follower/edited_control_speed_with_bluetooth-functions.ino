@@ -63,8 +63,8 @@ int RIGHT ( )
 int RIGHTHIGH ( )           //greater
 {     
 
-     analogWrite (spd1,128);      //255
-     analogWrite (spd2,128);
+     analogWrite (spd1,0);      //255
+     analogWrite (spd2,100);
           digitalWrite (motor2b,LOW);
       
      digitalWrite (motor2f,HIGH);
@@ -91,8 +91,8 @@ int LEFT()
 int LEFTHIGH(){
   
                           
-   analogWrite (spd1,128);          //
-     analogWrite (spd2,128);       //255
+   analogWrite (spd1,100);          //
+     analogWrite (spd2,0);       //255
    digitalWrite (motor2b,HIGH);
    
      digitalWrite (motor2f,LOW);
@@ -143,20 +143,21 @@ void loop() {
   
   if(digitalRead(RS)==0 && digitalRead(CS)==0 && digitalRead(LS)==0)     //stop
   {  
-    Serial.println("STOP");
-    STOP ();
+    Serial.println("FORWARD");
+    FORWARD ();
      
      
   }
    else if(digitalRead(RS)==1 && digitalRead(CS)==0 && digitalRead(LS)==0)     // Move  RIGHT  with slight angle Edite
     {
-       RIGHT ( );
+       LEFT ( );
+    delay(10);
     
     
   }
     else if(digitalRead(RS)==0 && digitalRead(CS)==1 && digitalRead(LS)==0)     // Move Forward with full speed Edited
   {
-      FORWARD( );
+      RIGHT( );
  
     }
      else if(digitalRead(RS)==1 && digitalRead(CS)==0 && digitalRead(LS)==1)     // Move Forward with full speed Edited
@@ -166,24 +167,26 @@ void loop() {
     }
     else if(digitalRead(RS)==1 && digitalRead(CS)==1 && digitalRead(LS)==0)     // Move Right with greater angle Edited
    {   
-    RIGHTHIGH ( );
+    LEFTHIGH ( );
+     delay(10);
   }
   
   else if(digitalRead(RS)==0 && digitalRead(CS)==0 && digitalRead(LS)==1)     // Move Left with slight angle edited
   {
-     LEFT();
-    
+     RIGHT();
+    delay(10);
     
   }
 
   else if(digitalRead(RS)==0 && digitalRead(CS)==1 && digitalRead(LS)==1)     // Move left with greater angle edited
   {
     
-     LEFTHIGH();
+     RIGHTHIGH();
+   delay(10);
   }
 
    else if(digitalRead(RS)==1 && digitalRead(CS)==1 && digitalRead(LS)==1)     // forward
-  {     FORWARD ();
+  {     STOP ();
      
   }
 
