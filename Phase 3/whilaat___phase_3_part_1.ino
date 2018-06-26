@@ -255,7 +255,7 @@ if (Serial.available() > 0)
    Serial.println(m);
    MoveReverse(CMtoSteps(m), 90);  // Reverse distance(m) steps at 90 speed
  }
-  
+   data2=0;    //Reset the bluetooth received data in phase 3 
  }
    data=0;    //Reset the bluetooth received data for all phases
 } 
