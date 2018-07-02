@@ -144,7 +144,31 @@ float l_arc = 2*3.14*r*angle/360;
   return result_angle;  // End and return result
 
 }
+void MoveLeft(int steps, int mspeed) 
+{
+   counter_A = 0;  //  reset counter A to zero
+   counter_B = 0;  //  reset counter B to zero
+   digitalWrite (motor2b,LOW);  //10
+     digitalWrite (motor2f,LOW); //11
+     digitalWrite (motor1b,LOW);  //12 motor A yemeen el robot  
+     digitalWrite (motor1f,HIGH); //13  motor A uemeen el robot
 
+     
+   // Go left until step value is reached
+   while (steps > counter_A && steps > counter_B) {
+   
+    if (steps > counter_A) {
+    analogWrite(spd2, mspeed);
+    } else {
+    analogWrite(spd2, 0);
+    }
+    if (steps > counter_B) {
+    analogWrite(spd1, mspeed);
+    } else {
+    analogWrite(spd1, 0);
+    }
+   }
+}
 // Function to Move Forward in phase 3
 void MoveForward(int steps, int mspeed) 
 {
@@ -256,7 +280,15 @@ if (Serial.available() > 0)
    Serial.println(m);
    MoveForward(CMtoSteps(m), 90);  // Forward distance(m) a metre at 90 speed  
    }
-
+ if (data2=='L')
+{  
+   Serial.println("Please enter angle");
+   delay(10000);
+   m=Serial.parseInt();
+   Serial.println("the angle enetered is ");
+   Serial.println(m);
+   MoveLeft(angle_steps(m) , 128);
+  }
  if(data2=='B')
  {
    Serial.println("Please enter distance in cm");
