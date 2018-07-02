@@ -312,6 +312,15 @@ if (Serial.available() > 0)
    Serial.println(m);
    MoveForward(CMtoSteps(m), 90);  // Forward distance(m) a metre at 90 speed  
    }
+      if (data2=='R')
+{  
+   Serial.println("Please enter angle");
+   delay(10000);
+   m=Serial.parseInt();
+   Serial.println("the angle enetered is ");
+   Serial.println(m);
+   MoveRight(angle_steps(m) , 128);
+  }
  if (data2=='L')
 {  
    Serial.println("Please enter angle");
