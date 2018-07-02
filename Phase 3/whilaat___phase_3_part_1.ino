@@ -132,7 +132,18 @@ int CMtoSteps(float cm) {
  
   return result;  // End and return result
 }
+int angle_steps ( int angle) {
+int result_angle;
+float l_arc = 2*3.14*r*angle/360;
+ float circumference = (wheeldiameter * 3.14) / 10; // Calculate wheel circumference in cm
+  float cm_step = circumference / stepcount;  // CM per Step
+  
+  float a_result = l_arc / cm_step;  // Calculate result as a float
+  result_angle = (int) a_result; // Convert to an integer (note this is NOT rounded)
+ 
+  return result_angle;  // End and return result
 
+}
 
 // Function to Move Forward in phase 3
 void MoveForward(int steps, int mspeed) 
