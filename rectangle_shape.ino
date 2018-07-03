@@ -36,8 +36,15 @@ digitalWrite(motor1f, HIGH);
  analogWrite(spd1,100);
  analogWrite(spd2, 100);
 
- delay (750);   // right angle for rectangle 
-
+ delay (750); 
+   // these 7lines will make the car move more accurate as it makes it deviate by about 10" each 50 cm
+digitalWrite(motor1f, HIGH);
+ digitalWrite(motor1b, LOW);
+ digitalWrite(motor2f, LOW);
+ digitalWrite(motor2b, HIGH);
+ analogWrite(spd1,100);
+ analogWrite(spd2, 100);
+  delay (70);
 
 
 
