@@ -144,7 +144,9 @@ else if(data3=='T')
     while(digitalRead(RS)==0 && digitalRead(CS)==1 && digitalRead(LS)==0)     // Move Forward with full speed Edited
   {
       FORWARD( );
- 
+  data3=Serial.read(); 
+   if(data3!='T')
+   break; 
     }
      while(digitalRead(RS)==1 && digitalRead(CS)==0 && digitalRead(LS)==1)     // Move Forward with full speed Edited
   {
