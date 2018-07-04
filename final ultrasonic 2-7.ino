@@ -11,7 +11,7 @@ int spd1 = 9;
 int spd2 = 6;
 long duration;
 long distance;
-
+char data3=0;
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
@@ -91,6 +91,15 @@ else if(data3=='T')
   
  while(digitalRead(RS)==0 && digitalRead(CS)==0 && digitalRead(LS)==0)     //stop //0 white
   {  
+   
+    Serial.println("\ndata3= ");
+    Serial.println(data3);
+    Serial.println("\nSTOP");
+    STOP();
+   data3=Serial.read(); 
+   if(data3!='T')
+   break; 
+   
     Serial.println("STOP");
     STOP();
 //    analogWrite (spd1,64);
