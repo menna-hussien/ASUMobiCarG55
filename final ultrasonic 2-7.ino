@@ -85,7 +85,10 @@ else
   delay(500); // equal to ~20°
   data = 'F';
   }
-
+else if(data3=='T')
+{
+  Serial.println("\nLINE TRACKER MODE IS ON");
+  
  while(digitalRead(RS)==0 && digitalRead(CS)==0 && digitalRead(LS)==0)     //stop //0 white
   {  
     Serial.println("STOP");
@@ -160,9 +163,7 @@ else
      
   }
 
-
-
-
+}
    
   
 }
