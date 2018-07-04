@@ -175,6 +175,17 @@ else if(data3=='T')
 
 }
 }
+  else if (data3=='A')
+{
+  
+    Serial.println("\nAccurate Mode Is On");
+   
+   
+  
+  
+  }
+  
+
   
 }
 void forward()
