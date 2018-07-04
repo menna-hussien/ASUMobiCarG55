@@ -88,7 +88,8 @@ else
 else if(data3=='T')
 {
   Serial.println("\nLINE TRACKER MODE IS ON");
-  
+  while(data3=='T')
+{  
  while(digitalRead(RS)==0 && digitalRead(CS)==0 && digitalRead(LS)==0)     //stop //0 white
   {  
    
@@ -173,7 +174,7 @@ else if(data3=='T')
   }
 
 }
-   
+}
   
 }
 void forward()
