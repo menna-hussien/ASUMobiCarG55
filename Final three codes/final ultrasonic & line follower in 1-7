@@ -176,11 +176,36 @@ else if(data3=='T')
 
    while(digitalRead(RS)==1 && digitalRead(CS)==1 && digitalRead(LS)==1)     // forward
   {     STOP ();
+        data3=Serial.read(); 
+   if(data3!='T')
+   break; 
      
   }
 
+  
+  if(data3=='U')
+  {
+    Serial.println("\nyou entered U");
+    data3='U';
+    break;
+    }
+    
+ else if(data3=='A')
+  { 
+    Serial.println("\nyou entered A");
+    data3='A';
+    break;
+    }
+ else data3='T';
+}  
 }
-}
+
+// Start of phase 3
+
+
+
+
+
   else if (data3=='A')
 {
   
