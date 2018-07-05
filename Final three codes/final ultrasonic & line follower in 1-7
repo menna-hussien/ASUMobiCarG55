@@ -328,7 +328,7 @@ void MoveRight(int steps, int mspeed)
    counter_B = 0;  //  reset counter B to zero
    digitalWrite (motor2b,LOW);  //10
      digitalWrite (motor2f,HIGH); //11
-     digitalWrite (motor1b,LOW);  //12 motor A yemeen el robot  
+     digitalWrite (motor1b,HIGH);  //12 motor A yemeen el robot  
      digitalWrite (motor1f,LOW); //13  motor A uemeen el robot
      
    // Go right until step value is reached
