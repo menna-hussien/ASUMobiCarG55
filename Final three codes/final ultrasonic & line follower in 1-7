@@ -366,7 +366,7 @@ void MoveLeft(int steps, int mspeed)
 {
    counter_A = 0;  //  reset counter A to zero
    counter_B = 0;  //  reset counter B to zero
-   digitalWrite (motor2b,LOW);  //10
+   digitalWrite (motor2b,HIGH);  //10
      digitalWrite (motor2f,LOW); //11
      digitalWrite (motor1b,LOW);  //12 motor A yemeen el robot  
      digitalWrite (motor1f,HIGH); //13  motor A uemeen el robot
