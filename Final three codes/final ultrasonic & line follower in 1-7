@@ -56,6 +56,10 @@ void setup() {
   pinMode (spd2, OUTPUT);
   pinMode(5, OUTPUT);
   pinMode(2, INPUT);
+  //// Attach the Interrupts to their ISR's
+//  attachInterrupt(digitalPinToInterrupt (MOTOR_A), ISR_countA, RISING);  // Increase counter A when speed sensor pin goes High
+//  attachInterrupt(digitalPinToInterrupt (MOTOR_B), ISR_countB, RISING);  // Increase counter B when speed sensor pin goes High
+//  
 }
 void loop() {
 
