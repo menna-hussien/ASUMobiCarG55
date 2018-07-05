@@ -301,3 +301,15 @@ long USReadings()
   distance= (duration/2)*0.034 ; 
   return distance ;
 }
+int angle_steps ( int angle) {
+int result_angle;
+float l_arc = 2*PI*14*angle/360;
+ float circumference = (wheeldiameter * PI)/10 ; // Calculate wheel circumference in cm
+  float cm_step = circumference / stepcount;  // CM per Step
+  
+  float a_result = l_arc / cm_step;  // Calculate result as a float
+  result_angle = (int) a_result; // Convert to an integer (note this is NOT rounded)
+ 
+  return result_angle;  // End and return result
+
+}
