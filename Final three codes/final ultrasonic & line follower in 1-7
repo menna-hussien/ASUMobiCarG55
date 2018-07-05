@@ -243,7 +243,15 @@ else if(data3=='T')
    Serial.println(m);
    MoveRight(angle_steps(m) , 90);
   }
-  
+   if (data2=='L')
+{  
+   Serial.println("Please enter angle");
+   delay(10000);
+   m=Serial.parseInt();
+   Serial.println("the angle enetered is ");
+   Serial.println(m);
+   MoveLeft(angle_steps(m) , 90);
+  }
   
   }
   
