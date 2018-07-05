@@ -32,6 +32,19 @@ volatile int counter_B = 0;
 float m = 0.0;
 //data2 is for direction entered in phase 3
 char data2=0;
+// Interrupt Service Routines
+
+// Motor A pulse count ISR
+void ISR_countA()  
+{
+  counter_A++;  // increment Motor A counter value
+} 
+
+// Motor B pulse count ISR
+void ISR_countB()  
+{
+  counter_B++;  // increment Motor B counter value
+}
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
