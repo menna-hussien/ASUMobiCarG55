@@ -234,7 +234,15 @@ else if(data3=='T')
   
     Serial.println("\nAccurate Mode Is On");
    
-   
+   if (data2=='R')
+{  
+   Serial.println("Please enter angle");
+   delay(10000);
+   m=Serial.parseInt();
+   Serial.println("the angle enetered is ");
+   Serial.println(m);
+   MoveRight(angle_steps(m) , 128);
+  }
   
   
   }
