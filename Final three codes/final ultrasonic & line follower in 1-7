@@ -241,7 +241,7 @@ else if(data3=='T')
    m=Serial.parseInt();
    Serial.println("the angle enetered is ");
    Serial.println(m);
-   MoveRight(angle_steps(m) , 90);
+   MoveRight(angle_steps(m) , 128);
   }
    if (data2=='L')
 {  
@@ -250,7 +250,7 @@ else if(data3=='T')
    m=Serial.parseInt();
    Serial.println("the angle enetered is ");
    Serial.println(m);
-   MoveLeft(angle_steps(m) , 90);
+   MoveLeft(angle_steps(m) , 128);
   }
   
   }
