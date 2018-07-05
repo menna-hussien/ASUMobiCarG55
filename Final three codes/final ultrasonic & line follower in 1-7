@@ -7,8 +7,12 @@ int motor1f = 13;
 int motor1b = 12;
 int motor2f = 11;
 int motor2b = 10;
-int spd1 = 9;
+int spd1 = 7;
 int spd2 = 6;
+//dah ell fe eh sensor aslan
+int LS=24;           
+int CS=23;
+int RS=22;
 long duration;
 long distance;
 char data3=0;
