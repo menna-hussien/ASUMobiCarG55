@@ -311,7 +311,7 @@ long USReadings()
 }
 int angle_steps ( int angle) {
 int result_angle;
-float l_arc = 2*PI*14*angle/360;
+float l_arc = 2*PI*6*angle/360;
  float circumference = (wheeldiameter * PI) ; // Calculate wheel circumference in cm
   float cm_step = circumference / stepcount;  // CM per Step
   
