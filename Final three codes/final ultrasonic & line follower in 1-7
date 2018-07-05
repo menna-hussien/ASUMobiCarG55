@@ -22,7 +22,7 @@ const byte MOTOR_B = 18;  // Motor 1 Interrupt Pin - INT 0 - Left Motor
 const float stepcount = 20.00;  // 20 Slots in disk
 
 // Constant for wheel diameter
-const float wheeldiameter = 6.40; // Wheel diameter in millimeters
+const float wheeldiameter = 6.40; // Wheel diameter in cms
 
 // Integers for pulse counters
 volatile int counter_A = 0;
