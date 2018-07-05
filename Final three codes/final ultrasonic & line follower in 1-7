@@ -313,3 +313,35 @@ float l_arc = 2*PI*14*angle/360;
   return result_angle;  // End and return result
 
 }
+// Function to Move right in phase 3
+void MoveRight(int steps, int mspeed) 
+{
+   counter_A = 0;  //  reset counter A to zero
+   counter_B = 0;  //  reset counter B to zero
+   digitalWrite (motor2b,LOW);  //10
+     digitalWrite (motor2f,HIGH); //11
+     digitalWrite (motor1b,LOW);  //12 motor A yemeen el robot  
+     digitalWrite (motor1f,LOW); //13  motor A uemeen el robot
+     
+   // Go right until step value is reached
+   while (steps > counter_A && steps > counter_B) {
+   
+    if (steps > counter_A) {
+    analogWrite(spd2, mspeed);
+    } else {
+    analogWrite(spd2, 0);
+    }
+    if (steps > counter_B) {
+    analogWrite(spd1, mspeed);
+    } else {
+    analogWrite(spd1, 0);
+    }
+   }
+    
+  // Stop when done
+  analogWrite(spd2, 0);
+  analogWrite(spd1, 0);
+  counter_A = 0;  //  reset counter A to zero
+  counter_B = 0;  //  reset counter B to zero 
+
+}
