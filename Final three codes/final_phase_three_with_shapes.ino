@@ -721,12 +721,8 @@ void Circle(){
       } 
      }
 
-   Serial.println(delayC);//DELAY 170
-     
-//for(j=0;j<4;j++){
-//  for(i=0;i<200;i++){
-    
-     MoveForward(CMtoSteps(25.0)*5,64);
+   Serial.println(delayC);//DELAY 170    
+   MoveForward(CMtoSteps(25.0)*5,64);
     LEFT();
      
      delay(delayC);
