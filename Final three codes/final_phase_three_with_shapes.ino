@@ -532,6 +532,38 @@ void STOP()
   digitalWrite(spd2, 0);
 }
 
+void FORWARD1(int  mspeed)
+{
+  digitalWrite(motor1f, HIGH);
+  digitalWrite(motor1b, LOW);
+  digitalWrite(motor2f, HIGH);
+  digitalWrite(motor2b, LOW);
+  analogWrite(spd1, mspeed);
+  analogWrite(spd2,  mspeed);
+}
+
+
+void LEFT1(int  mspeed)
+{
+  digitalWrite(motor1f, HIGH);
+  digitalWrite(motor1b, LOW);
+  digitalWrite(motor2f, LOW);
+  digitalWrite(motor2b, HIGH);
+  analogWrite(spd1,  mspeed);
+  analogWrite(spd2, mspeed);
+  
+}
+void RIGHT1(int mspeed)
+{
+  digitalWrite (motor1b, HIGH);
+  digitalWrite (motor1f, LOW);
+  digitalWrite (motor2b, LOW);
+  digitalWrite (motor2f, HIGH);
+  analogWrite(spd1,  mspeed);
+  analogWrite(spd2,  mspeed);
+}
+
+
 long USReadings()
 {
   digitalWrite(5,LOW);
