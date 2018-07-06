@@ -484,15 +484,6 @@ void FORWARD()
   analogWrite(spd1,90);
   analogWrite(spd2, 90);
 }
-void FORWARD3()
-{
-  digitalWrite(motor1f, HIGH);
-  digitalWrite(motor1b, LOW);
-  digitalWrite(motor2f, HIGH);
-  digitalWrite(motor2b, LOW);
-  analogWrite(spd1,64);
-  analogWrite(spd2, 64);
-}
 
 void LEFT()
 {
