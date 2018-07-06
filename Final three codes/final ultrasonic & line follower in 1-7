@@ -130,45 +130,66 @@ else if(data3=='T')
  while(digitalRead(RS)==0 && digitalRead(CS)==0 && digitalRead(LS)==0)     //stop //0 white
   {  
    
-    Serial.println("\ndata3= ");
-    Serial.println(data3);
-    Serial.println("\nSTOP");
-    STOP();
+   RIGHT();
+   delay (70);
+   while(digitalRead(RS)==1 && digitalRead(CS)==0 && digitalRead(LS)==0)     // Move  RIGHT  with slight angle Edite
+    {
+       RIGHT ( );
+     data3=Serial.read(); 
+   if(data3!='T')
+   break; 
+    
+  }
+    while(digitalRead(RS)==0 && digitalRead(CS)==1 && digitalRead(LS)==0)     // Move Forward with full speed Edited
+  {
+      FORWARD( );
+  data3=Serial.read(); 
+   if(data3!='T')
+   break; 
+    }
+     while(digitalRead(RS)==1 && digitalRead(CS)==0 && digitalRead(LS)==1)     // Move Forward with full speed Edited
+  {
+      FORWARD( );
+  data3=Serial.read(); 
+   if(data3!='T')
+   break; 
+    }
+    while(digitalRead(RS)==1 && digitalRead(CS)==1 && digitalRead(LS)==0)     // Move Right with greater angle Edited
+   {   
+    RIGHTHIGH ( );
+     data3=Serial.read(); 
+   if(data3!='T')
+   break; 
+  }
+  
+ while(digitalRead(RS)==0 && digitalRead(CS)==0 && digitalRead(LS)==1)     // Move Left with slight angle edited
+  {
+    
+     LEFT();
+     data3=Serial.read(); 
+   if(data3!='T')
+   break; 
+    
+  }
+
+  while(digitalRead(RS)==0 && digitalRead(CS)==1 && digitalRead(LS)==1)     // Move left with greater angle edited
+  {
+    
+     LEFTHIGH();
+      data3=Serial.read(); 
+   if(data3!='T')
+   break; 
+  } 
+   // Serial.println("\ndata3= ");
+   //Serial.println(data3);
+   // Serial.println("\nSTOP");
+   // STOP();
    data3=Serial.read(); 
    if(data3!='T')
    break; 
    
-    Serial.println("STOP");
-    STOP();
-//    analogWrite (spd1,64);
-//    analogWrite (spd2,64);        //128
-//
-//    digitalWrite (motor2b,LOW);
-//    digitalWrite (motor2f,HIGH);
-//    digitalWrite (motor1b,HIGH);     
-//    digitalWrite (motor1f,LOW);
-//
-//    if(digitalRead(RS)==0 && digitalRead(CS)==1 && digitalRead(LS)==0)
-//     FORWARD();
-//    else if(digitalRead(RS)==0 && digitalRead(CS)==0 && digitalRead(LS)==1)
-//    {  analogWrite (spd1,64);
-//    analogWrite (spd2,64);
-//     digitalWrite (motor2b,HIGH);
-//        digitalWrite (motor2f,LOW);     
-//     digitalWrite (motor1b,LOW);
-//      digitalWrite (motor1f,HIGH); 
-//    }
-//   else if(digitalRead(RS)==1 && digitalRead(CS)==0 && digitalRead(LS)==0)
-//   {   analogWrite (spd1,64);
-//    analogWrite (spd2,64);        //128
-//
-//    digitalWrite (motor2b,LOW);
-//    digitalWrite (motor2f,HIGH);
-//    digitalWrite (motor1b,HIGH);     
-//    digitalWrite (motor1f,LOW);
-//   }
-//  else STOP();
-//     
+   
+    
   }
    while(digitalRead(RS)==1 && digitalRead(CS)==0 && digitalRead(LS)==0)     // Move  RIGHT  with slight angle Edite
     {
