@@ -38,6 +38,26 @@ float m = 0.0;
 //data2 is for direction entered in phase 3
 char data2=0;
 
+//smoke SENSOR
+const int sensorPin= A0;
+const int buzzerPin= A1;
+int smoke_level;
+
+//light follower code
+int sensorPinRight =A2; // Right sensor pin
+int sensorPinCenter =A3; // Center sensor pin
+int sensorPinLeft = A4; // Left sensor pin
+
+int lightReadingRight;
+int lightToleranceRight = 1000; // Sensor reading needed to trigger right turn
+
+int lightReadingCenter;
+int lightToleranceCenter = 1000; // Sensor reading needed to trigger forward movement
+
+int lightReadingLeft;
+int lightToleranceLeft = 1000; // Sensor reading needed to trigger left turn
+
+int readingDelay = 100; // Delay between readings
 
 
 
@@ -56,6 +76,9 @@ void setup() {
   pinMode (spd2, OUTPUT);
   pinMode(5, OUTPUT);
   pinMode(2, INPUT);
+  pinMode(sensorPin, INPUT);//the smoke sensor will be an input to the arduino
+pinMode(buzzerPin, OUTPUT);//the buzzer serves an output in the circuit
+  pinMode(BLUE_LED, OUTPUT);
 }
 void loop() {
 
@@ -706,27 +729,17 @@ void MoveReverse(int steps, int mspeed)
    counter_B = 0;  //  reset counter B to zero
 }
 
-
 void Circle(){
   int i;
   int j;
-  Serial.println("Please enter circle delay: ");
-  bool delayExist = false;
-  while(!delayExist)
-     {
-      if (Serial.available() > 0)
-      {
-        delayC = atoi(Serial.readString().c_str()); // to convert el string to integer 
-        delayExist=true; 
-      } 
-     }
+  for(i=0;i<300;i++)
+  {  digitalWrite(motor1f, HIGH);
+ digitalWrite(motor1b, LOW);
+ digitalWrite(motor2f, HIGH);
+ digitalWrite(motor2b, LOW);
+ analogWrite(spd1,90);
+ analogWrite(spd2, 128);     
 
-   Serial.println(delayC);//DELAY 170    
-   MoveForward(CMtoSteps(25.0)*5,64);
-    LEFT();
-     
-     delay(delayC);
-     Serial.println(delayC);
      
 }
 
@@ -803,5 +816,71 @@ for (i=0 ; i<2; i++)
 //  analogWrite(spd2, 100);
 //  delay (450);
  
-} } 
+}
+ //sensors
+
+while(data3=='B'){  
+//SMOKE LEVEL SENSOR
+  
+smoke_level= analogRead(sensorPin); //arduino reads the value from the smoke sensor
+Serial.println(smoke_level);//prints just for debugging purposes, to see what values the sensor is picking up
+if(smoke_level > 200){ //if smoke level is greater than 200, the buzzer will go off
+digitalWrite(buzzerPin, HIGH);
+}
+else{
+digitalWrite(buzzerPin, LOW);
+}
+
+
+//light follower sensor
+
+// Take reading from right sensor
+lightReadingRight = analogRead(sensorPinRight);
+Serial.print("Right Sensor Reading :");
+Serial.println(lightReadingRight);
+
+// Take reading from center sensor
+lightReadingCenter = analogRead(sensorPinCenter);
+Serial.println("Center Sensor Reading :");
+Serial.println(lightReadingCenter);
+
+// Take reading from left sensor
+lightReadingLeft = analogRead(sensorPinLeft);
+Serial.print("Left Sensor Reading :");
+Serial.println(lightReadingLeft);
+
+
+// Move forward if enought light is detected from center sensor
+while (lightReadingCenter > lightToleranceCenter)
+{ 
+  FORWARD();
+  digitalWrite(BLUE_LED, LOW);
+  Serial.println("da5l CENTER:");
+  lightReadingCenter = analogRead(sensorPinCenter);
+  //STOP
+  STOP();
+}
+
+// Turn right if enough light is detected from right sensor
+while (lightReadingRight > lightToleranceRight)
+{
+   RIGHT();
+  digitalWrite(BLUE_LED, LOW);
+  Serial.println("da5l RIGHT:");
+  lightReadingRight= analogRead(sensorPinRight);
+  //STOP
+  STOP();
+}
+
+
+// Turn left if enough light is detected from left sensor
+while (lightReadingLeft > lightToleranceLeft)
+{
+  LEFT();
+  digitalWrite(BLUE_LED, LOW);
+  Serial.println("da5l LEFT:");
+lightReadingLeft = analogRead(sensorPinLeft);
+  //STOP
+  STOP();
+}} 
   
