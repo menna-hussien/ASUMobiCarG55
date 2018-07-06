@@ -134,7 +134,7 @@ else if(data3=='T')
    delay (70);
    while(digitalRead(RS)==1 && digitalRead(CS)==0 && digitalRead(LS)==0)     // Move  RIGHT  with slight angle Edite
     {
-       RIGHT ( );
+       LEFT ( );
      data3=Serial.read(); 
    if(data3!='T')
    break; 
@@ -156,7 +156,7 @@ else if(data3=='T')
     }
     while(digitalRead(RS)==1 && digitalRead(CS)==1 && digitalRead(LS)==0)     // Move Right with greater angle Edited
    {   
-    RIGHTHIGH ( );
+    LEFTHIGH ( );
      data3=Serial.read(); 
    if(data3!='T')
    break; 
@@ -165,7 +165,7 @@ else if(data3=='T')
  while(digitalRead(RS)==0 && digitalRead(CS)==0 && digitalRead(LS)==1)     // Move Left with slight angle edited
   {
     
-     LEFT();
+     RIGHT();
      data3=Serial.read(); 
    if(data3!='T')
    break; 
@@ -175,7 +175,7 @@ else if(data3=='T')
   while(digitalRead(RS)==0 && digitalRead(CS)==1 && digitalRead(LS)==1)     // Move left with greater angle edited
   {
     
-     LEFTHIGH();
+     RIGHTHIGH();
       data3=Serial.read(); 
    if(data3!='T')
    break; 
@@ -193,7 +193,7 @@ else if(data3=='T')
   }
    while(digitalRead(RS)==1 && digitalRead(CS)==0 && digitalRead(LS)==0)     // Move  RIGHT  with slight angle Edite
     {
-       RIGHT ( );
+       LEFT ( );
      data3=Serial.read(); 
    if(data3!='T')
    break; 
@@ -215,7 +215,7 @@ else if(data3=='T')
     }
     while(digitalRead(RS)==1 && digitalRead(CS)==1 && digitalRead(LS)==0)     // Move Right with greater angle Edited
    {   
-    RIGHTHIGH ( );
+    LEFTHIGH ( );
      data3=Serial.read(); 
    if(data3!='T')
    break; 
@@ -224,7 +224,7 @@ else if(data3=='T')
  while(digitalRead(RS)==0 && digitalRead(CS)==0 && digitalRead(LS)==1)     // Move Left with slight angle edited
   {
     
-     LEFT();
+     RIGHT();
      data3=Serial.read(); 
    if(data3!='T')
    break; 
@@ -234,7 +234,7 @@ else if(data3=='T')
   while(digitalRead(RS)==0 && digitalRead(CS)==1 && digitalRead(LS)==1)     // Move left with greater angle edited
   {
     
-     LEFTHIGH();
+     RIGHTHIGH();
       data3=Serial.read(); 
    if(data3!='T')
    break; 
