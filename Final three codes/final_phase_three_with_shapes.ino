@@ -710,19 +710,16 @@ void Circle(){
   int i;
   int j;
   for(i=0;i<300;i++)
-  digitalWrite(motor1f, HIGH);
+  {  digitalWrite(motor1f, HIGH);
  digitalWrite(motor1b, LOW);
  digitalWrite(motor2f, HIGH);
  digitalWrite(motor2b, LOW);
  analogWrite(spd1,90);
  analogWrite(spd2, 128);     
-   //  delay(delayC);
-     //Serial.println(delayC);
+
      
 }
-//MoveRight(angle_steps(50),64);
 
-  //}
 }
 
 
