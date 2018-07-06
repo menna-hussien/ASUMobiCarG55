@@ -706,17 +706,31 @@ void MoveReverse(int steps, int mspeed)
    counter_B = 0;  //  reset counter B to zero
 }
 
+
 void Circle(){
   int i;
   int j;
-  for(i=0;i<300;i++)
-  {  digitalWrite(motor1f, HIGH);
- digitalWrite(motor1b, LOW);
- digitalWrite(motor2f, HIGH);
- digitalWrite(motor2b, LOW);
- analogWrite(spd1,90);
- analogWrite(spd2, 128);     
+  Serial.println("Please enter circle delay: ");
+  bool delayExist = false;
+  while(!delayExist)
+     {
+      if (Serial.available() > 0)
+      {
+        delayC = atoi(Serial.readString().c_str()); // to convert el string to integer 
+        delayExist=true; 
+      } 
+     }
 
+   Serial.println(delayC);//DELAY 170
+     
+//for(j=0;j<4;j++){
+//  for(i=0;i<200;i++){
+    
+     MoveForward(CMtoSteps(25.0)*5,64);
+    LEFT();
+     
+     delay(delayC);
+     Serial.println(delayC);
      
 }
 
