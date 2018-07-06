@@ -43,7 +43,7 @@ void loop() {
   // put your main code here, to run repeatedly:
  
     analogWrite (spd1,100);
-     analogWrite (spd2,108);
+     analogWrite (spd2,128);
      digitalWrite (motor1f,HIGH);
      digitalWrite (motor1b,LOW);
      digitalWrite (motor2f,HIGH);
