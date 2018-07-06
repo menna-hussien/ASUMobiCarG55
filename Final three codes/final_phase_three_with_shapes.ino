@@ -181,7 +181,7 @@ while(data3=='T')
 
    while(digitalRead(RS)==0 && digitalRead(CS)==0 && digitalRead(LS)==0 && data3=='T')     //stop //0 white
   { 
-    RIGHT();
+    RIGHT1(100);
   delay(70);
     
 //    Serial.println("\ndata3= ");
@@ -196,7 +196,7 @@ while(data3=='T')
    while(digitalRead(RS)==1 && digitalRead(CS)==0 && digitalRead(LS)==0 && data3=='T')     // Move  RIGHT  with slight angle Edite
     {
       Serial.println("\nright");
-       LEFT ( );
+       RIGHT1(100);
      data3=Serial.read(); 
    if(data3!='T')
    break; 
@@ -205,7 +205,7 @@ while(data3=='T')
     while(digitalRead(RS)==0 && digitalRead(CS)==1 && digitalRead(LS)==0 && data3=='T')     // Move Forward with full speed Edited
   {
       Serial.println("\nforward");
-      FORWARD( );
+      FORWARD1(70);
        data3=Serial.read(); 
    if(data3!='T')
    break; 
@@ -214,7 +214,7 @@ while(data3=='T')
      while(digitalRead(RS)==1 && digitalRead(CS)==0 && digitalRead(LS)==1 && data3=='T')     // Move Forward with full speed Edited
   {
       Serial.println("\nforward");
-      FORWARD();
+      FORWARD1(70);
        data3=Serial.read(); 
    if(data3!='T')
    break; 
@@ -222,8 +222,8 @@ while(data3=='T')
     }
     while(digitalRead(RS)==1 && digitalRead(CS)==1 && digitalRead(LS)==0 && data3=='T')     // Move Right with greater angle Edited
    {   
-    Serial.println("\nright");
-    LEFT ();
+    Serial.println("\nrightHIGH");
+    RIGHT1 (120);
      data3=Serial.read(); 
    if(data3!='T')
    break; 
@@ -232,7 +232,7 @@ while(data3=='T')
  while(digitalRead(RS)==0 && digitalRead(CS)==0 && digitalRead(LS)==1 && data3=='T')     // Move Left with slight angle edited
   {
     Serial.println("\nleft");
-     RIGHT();
+     LEFT1(100);
      data3=Serial.read(); 
    if(data3!='T')
    break; 
@@ -241,8 +241,8 @@ while(data3=='T')
 
   while(digitalRead(RS)==0 && digitalRead(CS)==1 && digitalRead(LS)==1 && data3=='T')     // Move left with greater angle edited
   {
-    Serial.println("\nleft");
-     RIGHT();
+    Serial.println("\nleftHIGH");
+     LEFT1(120);
       data3=Serial.read(); 
    if(data3!='T')
    break; 
@@ -289,7 +289,7 @@ while(data3=='T')
    while(digitalRead(RS)==1 && digitalRead(CS)==0 && digitalRead(LS)==0 && data3=='T')     // Move  RIGHT  with slight angle Edite
     {
       Serial.println("\nright");
-       LEFT ( );
+       RIGHT1 (100 );
      data3=Serial.read(); 
    if(data3!='T')
    break; 
@@ -298,7 +298,7 @@ while(data3=='T')
     while(digitalRead(RS)==0 && digitalRead(CS)==1 && digitalRead(LS)==0 && data3=='T')     // Move Forward with full speed Edited
   {
       Serial.println("\nforward");
-      FORWARD( );
+      FORWARD1(64);
        data3=Serial.read(); 
    if(data3!='T')
    break; 
@@ -307,7 +307,7 @@ while(data3=='T')
      while(digitalRead(RS)==1 && digitalRead(CS)==0 && digitalRead(LS)==1 && data3=='T')     // Move Forward with full speed Edited
   {
       Serial.println("\nforward");
-      FORWARD();
+      FORWARD1(64);
        data3=Serial.read(); 
    if(data3!='T')
    break; 
@@ -315,8 +315,8 @@ while(data3=='T')
     }
     while(digitalRead(RS)==1 && digitalRead(CS)==1 && digitalRead(LS)==0 && data3=='T')     // Move Right with greater angle Edited
    {   
-    Serial.println("\nright");
-    LEFT ();
+    Serial.println("\nrightHIGH");
+    RIGHT1 (64);
      data3=Serial.read(); 
    if(data3!='T')
    break; 
@@ -325,7 +325,7 @@ while(data3=='T')
  while(digitalRead(RS)==0 && digitalRead(CS)==0 && digitalRead(LS)==1 && data3=='T')     // Move Left with slight angle edited
   {
     Serial.println("\nleft");
-     RIGHT();
+     LEFT1(100);
      data3=Serial.read(); 
    if(data3!='T')
    break; 
@@ -334,8 +334,8 @@ while(data3=='T')
 
   while(digitalRead(RS)==0 && digitalRead(CS)==1 && digitalRead(LS)==1 && data3=='T')     // Move left with greater angle edited
   {
-    Serial.println("\nleft");
-     RIGHT();
+    Serial.println("\nleftHIGH");
+     LEFT1(120);
       data3=Serial.read(); 
    if(data3!='T')
    break; 
@@ -343,7 +343,7 @@ while(data3=='T')
 
    while(digitalRead(RS)==1 && digitalRead(CS)==1 && digitalRead(LS)==1 && data3=='T')     // forward
   {     Serial.println("\nstop");
-  FORWARD ();
+  FORWARD1(70);
    data3=Serial.read(); 
    if(data3!='T')
    break; 
