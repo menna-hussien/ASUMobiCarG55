@@ -241,7 +241,7 @@ else if(data3=='T')
   }
 
    while(digitalRead(RS)==1 && digitalRead(CS)==1 && digitalRead(LS)==1)     // forward
-  {     STOP ();
+  {     FORWARD ();
    data3=Serial.read(); 
    if(data3!='T')
    break; 
