@@ -1624,8 +1624,8 @@ int CMtoSteps(float cm) {
 
 int angle_steps ( int angle) {
 int result_angle;
-float l_arc = 2*3.14*15*angle/360;
- float circumference = (wheeldiameter * 3.14) ; // Calculate wheel circumference in cm shayleen el 10
+float l_arc = 2*3.14*12*angle/360;
+ float circumference = (wheeldiameter * 3.14)/10 ; // Calculate wheel circumference in cm shayleen el 10
   float cm_step = circumference / stepcount;  // CM per Step
   
   float a_result = l_arc / cm_step;  // Calculate result as a float
